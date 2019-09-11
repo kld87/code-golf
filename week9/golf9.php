@@ -9,16 +9,7 @@ error_reporting(E_ERROR); //suppress non-fatal errors
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function golf($v) {
-    $l = strlen($v);
-    for (; $i < $l; $i++) {
-        $s = '';
-        for ($j = $i; $j < $l; $j++) {
-            $s .= $v[$j];
-            if (strpos($v, $s, $j+1) && strlen($s) > strlen($d))
-                $d = $s;
-        }
-    }
-    return $d;
+    return $v;
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -8,34 +8,8 @@ error_reporting(E_ERROR); //suppress non-fatal errors
 //Only use what is between here and the "END SOLUTION" comment to compute your score
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-const s = ' ';
-const a = '*';
-const b = '';
 function golf($v) {
-    $f = str_pad;
-    $p = ($v-1)/2;
-
-    $r = $f(b, $p, s) . $f(b, $v, a) . $f(b, $v-2, s) . $f(b, $v, a) . "\n";
-
-    $l = $p-1;
-    while ($l >= 0) {
-        $r .= $f(b, $l, s) . a . $f(b, $v, s) . a . $f(b, $l*2-1, s);
-        if ($l) $r .= a;
-        $r .= $f(b, $v, s) . "*\n";
-
-        $l--;
-        $v += 2;
-    }
-
-    $l = 1;
-    $m = $p*8 - 3;
-    while ($m >= 0) {
-        $r .= $f(b, $l, s) . a . $f(b, $m, s) . "*\n";
-
-        $l++;
-        $m -= 2;
-    }
-    return $r .= $f(b, $l, s) . a;
+    return $v;
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!

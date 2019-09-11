@@ -9,6 +9,7 @@ error_reporting(E_ERROR); //suppress non-fatal errors
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function golf($v){
+    return $v;
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!

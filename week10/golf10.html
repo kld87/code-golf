@@ -7,44 +7,8 @@
 //Only use what is between here and the "END SOLUTION" comment to compute your score
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-var g;
-d = [
-    [-1, -1],
-    [-1, 0],
-    [-1, 1],
-    [0, -1],
-    [0, 1],
-    [1, -1],
-    [1, 0],
-    [1, 1]
-];
-
-function s(r, c) {
-    if (r < 0 || c < 0 || r >= g.length || c >= g[0].length) return true;
-    if (g[r][c] != '-') return false;
-    g[r][c] = 'R';
-    for (var i = 0; i < 8; i++) {
-        if (s(r+d[i][0], c+d[i][1])) {
-            return true;
-        }
-    };
-    //return false;
-}
-
 function golf(v) {
-    g = v.split("\n");
-    for (i = 0; i < g.length; i++) {
-        g[i] = g[i].split('');
-    }
-    o = 'surrender';
-    for (r = 0; r < g.length; r++) {
-        for (c = 0; c < g[r].length; c++) {
-            if (g[r][c] == 'R') {
-                g[r][c] = '-';
-                return s(r, c) ? 'run' : 'surrender';
-            }
-        }
-    }
+    return v
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -10,24 +10,7 @@ var e = {'H':1,'He':2,'Li':3,'Be':4,'B':5,'C':6,'N':7,'O':8,'F':9,'Ne':10,'Na':1
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 golf = v => {
-    m = 0;
-    i = 0;
-    do {
-        if (e[v.substring(i, i+2)]) {
-            k = e[v.substring(i, i+2)];
-            i += 2;
-        } else {
-            k = e[v.substring(i, i+1)];
-            i++;
-        }
-        if (n = parseInt(v.substring(i))) {
-            k *= n;
-            i += (n+'').length;
-        }
-        m += k;
-    } while (i < v.length)
-
-    return m;
+    return v
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!
