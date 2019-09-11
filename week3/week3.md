@@ -28,7 +28,7 @@ bottom-right of the given grid populated by Glufs without getting eaten.
 
 `RDRRDDRDDR`
 
-##Specifics
+## Specifics
 
 * Grids are formatted as 2D array of rows and columns, accessed like $grid[$row][$column]
 * Grids will vary in size

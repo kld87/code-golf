@@ -50,7 +50,7 @@ See: [Reference](https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities
 
 Given the output from the second event as input, extract the names of the cities into an array. Sort that array alphabetically without using any built-in sorting functions such as sort(). For cities joined by a slash, you will need to separate them and sort them independently.
 
-Example output (ellipses added for brevity):
+**Example output (ellipses added for brevity):**
 
 ['Athens', 'Atlanta', ..., 'Turin', 'Vancouver']
 
