@@ -1,0 +1,125 @@
+<html>
+<head>
+<script>
+//FOR GOLF 12, DON'T TOUCH
+var e = {'H':1,'He':2,'Li':3,'Be':4,'B':5,'C':6,'N':7,'O':8,'F':9,'Ne':10,'Na':11,'Mg':12,'Al':13,'Si':14,'P':15,'S':16,'Cl':17,'Ar':18,'K':19,'Ca':20,'Sc':21,'Ti':22,'V':23,'Cr':24,'Mn':25,'Fe':26,'Co':27,'Ni':28,'Cu':29,'Zn':30,'Ga':31,'Ge':32,'As':33,'Se':34,'Br':35,'Kr':36,'Rb':37,'Sr':38,'Y':39,'Zr':40,'Nb':41,'Mo':42,'Tc':43,'Ru':44,'Rh':45,'Pd':46,'Ag':47,'Cd':48,'In':49,'Sn':50,'Sb':51,'Te':52,'I':53,'Xe':54,'Cs':55,'Ba':56,'La':57,'Ce':58,'Pr':59,'Nd':60,'Pm':61,'Sm':62,'Eu':63,'Gd':64,'Tb':65,'Dy':66,'Ho':67,'Er':68,'Tm':69,'Yb':70,'Lu':71,'Hf':72,'Ta':73,'W':74,'Re':75,'Os':76,'Ir':77,'Pt':78,'Au':79,'Hg':80,'Tl':81,'Pb':82,'Bi':83,'Po':84,'At':85,'Rn':86,'Fr':87,'Ra':88,'Ac':89,'Th':90,'Pa':91,'U':92,'Np':93,'Pu':94,'Am':95,'Cm':96,'Bk':97,'Cf':98,'Es':99,'Fm':100,'Md':101,'No':102,'Lr':103,'Rf':104,'Ha':105,'Sg':106,'Ns':107,'Hs':108,'Mt':109,'Unn':110,'Unu':111};
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//START SOLUTION
+//Write your solution below
+//Only use what is between here and the "END SOLUTION" comment to compute your score
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+golf = v => {
+    m = 0;
+    i = 0;
+    do {
+        if (e[v.substring(i, i+2)]) {
+            k = e[v.substring(i, i+2)];
+            i += 2;
+        } else {
+            k = e[v.substring(i, i+1)];
+            i++;
+        }
+        if (n = parseInt(v.substring(i))) {
+            k *= n;
+            i += (n+'').length;
+        }
+        m += k;
+    } while (i < v.length)
+
+    return m;
+}
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//END SOLUTION
+//Do not touch the code below this comment block
+//It exists to help verify your above solution
+//Do not include it in the character count for your solution
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var input = [
+       'H2O',
+       'H2O2',
+       'NaCHO3',
+       'Na3N',
+       'C8H10N4O2',
+       'C20H25N3O',
+       'C8H11NO2',
+       'C43H66N12O12S2',
+       'C123H80O78',
+       'Na',
+       'N',
+       'H3',
+       'H2PtCl6'
+    ],
+    expected = [
+        10,
+        18,
+        42,
+        40,
+        102,
+        174,
+        82,
+        536,
+        1442,
+        11,
+        7,
+        3,
+        182
+    ];
+
+function init() {
+    for (var i = 0; i < input.length; i++) {
+        document.getElementById('tbody').innerHTML += '<tr><td><textarea id="input' + i + '"></textarea></td><td><textarea id="output' + i + '"></textarea></td><td id="result' + i + '"></td></tr>';
+    }
+    setTimeout(function() {
+        test();
+    }, 10);
+}
+
+function test() {
+    var passed = true,
+        output;
+
+    for (var i = 0; i < input.length; i++) {
+        output = golf(input[i]);
+        document.getElementById('input' + i).value = input[i];
+        document.getElementById('output' + i).value = output;
+        if (output == expected[i]) {
+            document.getElementById('result' + i).innerHTML = 'pass';
+        } else {
+            document.getElementById('result' + i).innerHTML = 'FAIL!'
+            passed = false;
+        }
+    }
+
+    document.getElementById('result').innerHTML = passed ? 'All tests passed, valid solution!' : 'FAIL!';
+}
+
+</script>
+<style>
+textarea {
+    width: 500px;
+    height: 120px;
+    wrap: hard;
+}
+</style>
+</head>
+<body onload="init()">
+
+<h1>Result: <span id="result"></span></h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+
+</body>
+</html>

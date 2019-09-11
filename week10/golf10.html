@@ -1,0 +1,148 @@
+<html>
+<head>
+<script>
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//START SOLUTION
+//Write your solution below
+//Only use what is between here and the "END SOLUTION" comment to compute your score
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var g;
+d = [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [0, -1],
+    [0, 1],
+    [1, -1],
+    [1, 0],
+    [1, 1]
+];
+
+function s(r, c) {
+    if (r < 0 || c < 0 || r >= g.length || c >= g[0].length) return true;
+    if (g[r][c] != '-') return false;
+    g[r][c] = 'R';
+    for (var i = 0; i < 8; i++) {
+        if (s(r+d[i][0], c+d[i][1])) {
+            return true;
+        }
+    };
+    //return false;
+}
+
+function golf(v) {
+    g = v.split("\n");
+    for (i = 0; i < g.length; i++) {
+        g[i] = g[i].split('');
+    }
+    o = 'surrender';
+    for (r = 0; r < g.length; r++) {
+        for (c = 0; c < g[r].length; c++) {
+            if (g[r][c] == 'R') {
+                g[r][c] = '-';
+                return s(r, c) ? 'run' : 'surrender';
+            }
+        }
+    }
+}
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//END SOLUTION
+//Do not touch the code below this comment block
+//It exists to help verify your above solution
+//Do not include it in the character count for your solution
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var input = [
+        "-----\n-CCC-\n-CRC-\n-CCC-\n-----",
+        "-----\n-CCC-\n-CRC-\n-C-C-\n-----",
+        "-------\n-CCCCC-\n-C---C-\n-C-R-C-\n-C---C-\n-CCCCC-\n-------",
+        "-------\n-CCCCC-\n-C---C-\n-C-R-C-\n-C-----\n-CCCCC-\n-------",
+        "-------\n-CCCCC-\n-C---C-\n-C-R-C-\n-----C-\n-CCCCC-\n-------",
+        "CCCC--\nC-RC--\nCCCC--",
+        "-CCC--\nC-RC--\nCCCC--",
+        "CCCCCCC\nC--R--C\nC-----C\nCCCCCCC",
+        "CCCCCCC\nC--R--C\nC-CCC-C\n-------",
+        "---\n-R-\n---",
+        "---\nCC-\nC-C\nCRC\nCCC",
+        "CC-\nRC-\nCC-",
+        "C-C-C\n-C-C-\nC-R-C\n-C-C-\nC-C-C",
+        "CCC\nCRC\nCCC",
+        "CCCCCCC\nC-----C\nC-----C\nC--R--C\nC-----C\nC-----C\nCCCCCCC",
+        "CCCC-CC\nC-----C\nC-----C\nC--R--C\nC-----C\nC-----C\nCCCCCCC",
+    ],
+    expected = [
+        'surrender',
+        'run',
+        'surrender',
+        'run',
+        'run',
+        'surrender',
+        'run',
+        'surrender',
+        'run',
+        'run',
+        'run',
+        'run',
+        'run',
+        'surrender',
+        'surrender',
+        'run'
+    ];
+
+function init() {
+    for (var i = 0; i < input.length; i++) {
+        document.getElementById('tbody').innerHTML += '<tr><td><textarea id="input' + i + '"></textarea></td><td><textarea id="output' + i + '"></textarea></td><td id="result' + i + '"></td></tr>';
+    }
+    setTimeout(function() {
+        test();
+    }, 10);
+}
+
+function test() {
+    var passed = true,
+        output;
+
+    for (var i = 0; i < input.length; i++) {
+        output = golf(input[i]);
+        document.getElementById('input' + i).value = input[i];
+        document.getElementById('output' + i).value = output;
+        if (output == expected[i]) {
+            document.getElementById('result' + i).innerHTML = 'pass';
+        } else {
+            document.getElementById('result' + i).innerHTML = 'FAIL!'
+            passed = false;
+        }
+    }
+
+    document.getElementById('result').innerHTML = passed ? 'All tests passed, valid solution!' : 'FAIL!';
+}
+
+</script>
+<style>
+textarea {
+    width: 500px;
+    height: 120px;
+    wrap: hard;
+}
+</style>
+</head>
+<body onload="init()">
+
+<h1>Result: <span id="result"></span></h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+
+</body>
+</html>

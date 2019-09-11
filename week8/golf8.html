@@ -1,0 +1,90 @@
+<html>
+<head>
+<script>
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//START SOLUTION
+//Write your solution below
+//Only use what is between here and the "END SOLUTION" comment to compute your score
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+function golf8(t) {
+    return t;
+}
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+//END SOLUTION
+//Do not touch the code below this comment block
+//It exists to help verify your above solution
+//Do not include it in the character count for your solution
+//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+function test() {
+    var input = 'tpujl aoyll jsvclz vm nhyspj, huk jvtipul pu h zthss ivds dpao thfvuuhpzl, hujovcplz, adv ahislzwvvuz vm aol whytlzhu jollzl, dvyjlzalyzopyl zhbjl, tbzahyk, huk sltvu qbpjl. zlhzvu av ahzal dpao zhsa huk ishjr wlwwly. ylmypnlyhal buaps ylhkf av bzl.',
+        output = golf8(input),
+        expected = 'mince three cloves of garlic, and combine in a small bowl with mayonnaise, anchovies, two tablespoons of the parmesan cheese, worcestershire sauce, mustard, and lemon juice. season to taste with salt and black pepper. refrigerate until ready to use.',
+        pass1 = output === expected;
+    document.getElementById('input1').value = input;
+    document.getElementById('output1').value = output;
+    document.getElementById('result1').innerHTML = pass1 ? 'pass' : 'FAIL!';
+
+    input = 'ebxq lfi fk x ixodb phfiibq lsbo jbafrj ebxq. zrq qeb objxfkfkd qeobb zilsbp lc dxoifz fkql nrxoqbop, xka xaa ql elq lfi. zllh xka pqfo rkqfi yoltk, xka qebk objlsb dxoifz colj mxk. xaa yobxa zrybp ql qeb elq lfi. zllh, qrokfkd cobnrbkqiv, rkqfi ifdeqiv yoltkba. objlsb yobxa zrybp colj lfi, xka pbxplk tfqe pxiq xka mbmmbo.';
+    output = golf8(input);
+    expected = 'heat oil in a large skillet over medium heat. cut the remaining three cloves of garlic into quarters, and add to hot oil. cook and stir until brown, and then remove garlic from pan. add bread cubes to the hot oil. cook, turning frequently, until lightly browned. remove bread cubes from oil, and season with salt and pepper.';
+    pass2 = output === expected;
+    document.getElementById('input2').value = input;
+    document.getElementById('output2').value = output;
+    document.getElementById('result2').innerHTML = pass2 ? 'pass' : 'FAIL!';
+
+    input = 'awlnp wpeefnp ty l wlcrp mzhw. ezdd htes ocpddtyr, cpxltytyr alcxpdly nsppdp, lyo dpldzypo mcplo nfmpd.';
+    output = golf8(input);
+    expected = 'place lettuce in a large bowl. toss with dressing, remaining parmesan cheese, and seasoned bread cubes.';
+    pass3 = output === expected;
+    document.getElementById('input3').value = input;
+    document.getElementById('output3').value = output;
+    document.getElementById('result3').innerHTML = pass3 ? 'pass' : 'FAIL!';
+
+    document.getElementById('result4').innerHTML = pass1 && pass2 && pass3 ? 'All tests passed, valid solution!' : 'FAIL!';
+}
+
+</script>
+<style>
+textarea {
+    width: 500px;
+    height: 100px;
+    wrap: hard;
+}
+</style>
+</head>
+<body onload="test()">
+
+<table>
+    <thead>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><textarea id="input1"></textarea></td>
+            <td><textarea id="output1"></textarea></td>
+            <td id="result1"></td>
+        </tr>
+        <tr>
+            <td><textarea id="input2"></textarea></td>
+            <td><textarea id="output2"></textarea></td>
+            <td id="result2"></td>
+        </tr>
+        <tr>
+            <td><textarea id="input3"></textarea></td>
+            <td><textarea id="output3"></textarea></td>
+            <td id="result3"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Result: <span id="result4"></span></h1>
+
+</body>
+</html>
